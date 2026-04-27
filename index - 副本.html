@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目问题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        
+        .question-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .question-card:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+        
+        .question-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .question-text {
+            color: #333;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .answer {
+            display: none;
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            border-radius: 0 10px 10px 0;
+            margin-top: 15px;
+            animation: slideDown 0.3s ease;
+        }
+        
+        .answer.show {
+            display: block;
+        }
+        
+        .answer-label {
+            color: #4caf50;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .answer-text {
+            color: #2e7d32;
+            font-size: 15px;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hint {
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 项目问题</h1>
+        
+        <div class="question-card" onclick="toggleAnswer(1)">
+            <div class="question-text">
+                <span class="question-number">1</span>
+              1.我们是如何保障项目成本核算的准确性的？ 
+            </div>
+            <div class="answer" id="answer-1">
+                <div class="answer-label">✅ 答案</div>
+                <div class="answer-text">招投标阶段，我们会在与客户完成澄清后，编制OCC（Offer calculation cost）作为内部成本核算、批准和对外报价的基准。 
+
+设计部门会根据技术方案初步明确材料明细、选型和用量； 
+
+商务和报价部门会核查材料价格和其他商务成本（管理&分摊费用、一次性支出，风险预留等），报价部门制定报价策略并完成OCC定稿和投标价格的审批； 
+
+合同签订后，报价部门根据最终设计方案、合同情况及资源准备等将OCC更新为OIC（order intake calculation），作为成本跟踪的基准； 
+
+成本发生：项目执行期间，每一笔费用的发生，都会根据项目每台产品对应的WBS准确在SAP中进行归集； 
+
+成本跟踪： 
+
+项目执行阶段，项目商务项目经理会进行费用和成本归集的及时性和准确性管理； 
+
+实现销售收入后，项目商务项目经理和项目经理会按需/定期根据SAP中费用记录情况，对照进行成本发生情况的核算和分析。 </div>
+            </div>
+        </div>
+        
+        <div class="question-card" onclick="toggleAnswer(2)">
+            <div class="question-text">
+                <span class="question-number">2</span>
+                2、原材料/成品库存积压对项目资金和公司现金流的影响如何（量化和理解）是否有监控机制？ 
+            </div>
+            <div class="answer" id="answer-2">
+                <div class="answer-label">✅ 答案</div>
+                <div class="answer-text">库存可以理解为将‘现金变为货物’，将现金锁在仓库中，占用越多现金流越紧张 
+
+我们公司会定期整理并出具库存报告，对原材料、半成品及成品库存进行统计、预警和分析。 </div>
+            </div>
+        </div>
+        
+                          
+        <div class="hint">👆 点击问题查看答案</div>
+    </div>
+    
+    <script>
+        function toggleAnswer(id) {
+            const answer = document.getElementById('answer-' + id);
+            answer.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
